@@ -1,0 +1,19 @@
+{
+	"C++ Class": {
+	  "prefix": "class",
+	  "body": [
+		"#pragma once",
+		"",
+		"class ${1:ClassName} {",
+		"public:",
+		"    ${1:ClassName}();",
+		"    ~${1:ClassName}();",
+		"",
+		"private:",
+		"    $0",
+		"};"
+	  ],
+	  "description": "Basic C++ class template"
+	}
+  }
+  
