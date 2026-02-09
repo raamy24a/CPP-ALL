@@ -6,12 +6,12 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/05 13:30:40 by radib            ###   ########.fr        #
+#    Updated: 2026/02/09 15:13:02 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= myawesomephonebook
-SRCS		= ./MyAwesomePhoneBook.cpp
+SRCS		= ./main.cpp ./PhoneBook.cpp ./Contact.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98

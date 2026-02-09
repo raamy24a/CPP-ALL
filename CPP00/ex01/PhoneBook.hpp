@@ -1,44 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyAwesomePhoneBook.hpp                             :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 12:54:58 by radib             #+#    #+#             */
-/*   Updated: 2026/02/07 01:39:42 by radib            ###   ########.fr       */
+/*   Created: 2026/02/09 13:03:36 by radib             #+#    #+#             */
+/*   Updated: 2026/02/09 16:19:09 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
+#include "Contact.hpp"
 #include <iostream>
 #include <iomanip>
-#include <string>
-#include <optional>
-
-#ifndef MYAWSOMEPHONEBOOK_HPP
-#define MYAWSOMEPHONEBOOK_HPP
-#endif
-
-
-class Contact {
-public:
-    std::string first_name;
-    std::string last_name;
-    std::string nickname;
-    std::string phone_number;
-    std::string darkest_secret;
-private:
-    
-};
+#include <string.h>
+#include <cstdlib>
 
 class PhoneBook {
-public:
+	public:
+		void main_loop();
+		void search(int index);
+	private:
     Contact contact_list[8];
-private:
-    
 };
-
-struct Optional {
-    Contact val;
-    bool has_value;
-};
+#endif
