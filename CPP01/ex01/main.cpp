@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:01:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 12:14:52 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/11 13:56:30 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 int	main()
 {
-	Zombie *Gabin;
-	Gabin = newZombie("Gabin");
-	randomChump("fortnite");
-	delete Gabin;
+	int N = 10;
+	Zombie *ptr;
+	ptr = zombieHorde(N, "Gabin");
+
+	while (N > 0)
+	{
+		N--;
+		ptr[N].announce();
+	}
+	delete []ptr;
 	return (0);
 }

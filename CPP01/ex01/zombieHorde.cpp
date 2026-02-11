@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 13:01:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 12:14:52 by radib            ###   ########.fr       */
+/*   Created: 2026/02/11 12:56:16 by radib             #+#    #+#             */
+/*   Updated: 2026/02/11 13:39:52 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main()
+Zombie* zombieHorde( int N, std::string name )
 {
-	Zombie *Gabin;
-	Gabin = newZombie("Gabin");
-	randomChump("fortnite");
-	delete Gabin;
-	return (0);
+	Zombie *ptr = new Zombie[N];
+
+	while (N > 0)
+	{
+		N--;
+		ptr[N].setter(name);
+	}
+	return (ptr);
 }

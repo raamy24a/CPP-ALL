@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 13:01:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 12:14:52 by radib            ###   ########.fr       */
+/*   Created: 2026/02/10 13:02:59 by radib             #+#    #+#             */
+/*   Updated: 2026/02/11 13:34:55 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-int	main()
-{
-	Zombie *Gabin;
-	Gabin = newZombie("Gabin");
-	randomChump("fortnite");
-	delete Gabin;
-	return (0);
-}
+#include <string>
+#include <iostream>
+
+class Zombie {
+public:
+	Zombie();
+	Zombie(std::string name);
+	void announce( void );
+	void setter(std::string name);
+	~Zombie();
+private:
+	std::string name;
+};
+Zombie* zombieHorde( int N, std::string name );
+
+
+#endif

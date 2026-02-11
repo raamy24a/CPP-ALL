@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 13:01:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 12:14:52 by radib            ###   ########.fr       */
+/*   Created: 2026/02/11 14:18:07 by radib             #+#    #+#             */
+/*   Updated: 2026/02/11 15:54:05 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int	main()
+class HumanB
 {
-	Zombie *Gabin;
-	Gabin = newZombie("Gabin");
-	randomChump("fortnite");
-	delete Gabin;
-	return (0);
-}
+public:
+	HumanB(std::string name);
+	HumanB(std::string name, Weapon weapon);
+	void setWeapon(Weapon weapon);
+	~HumanB();
+	void attack();
+private:
+	std::string name;
+	Weapon weapon;
+};

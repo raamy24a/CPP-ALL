@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 13:01:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 12:14:52 by radib            ###   ########.fr       */
+/*   Created: 2026/02/11 14:17:57 by radib             #+#    #+#             */
+/*   Updated: 2026/02/11 15:46:44 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int	main()
+HumanA::HumanA(std::string name, Weapon weapon) {
+	std::cout << "HumanA constructor called" << std::endl;
+	this->name = name;
+	this->weapon = weapon;
+}
+
+HumanA::~HumanA()
 {
-	Zombie *Gabin;
-	Gabin = newZombie("Gabin");
-	randomChump("fortnite");
-	delete Gabin;
-	return (0);
+	std::cout << "Default HumanA destructor called" << std::endl;
+}
+
+void HumanA::attack()
+{
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }

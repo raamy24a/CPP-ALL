@@ -6,12 +6,12 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/11 12:12:49 by radib            ###   ########.fr        #
+#    Updated: 2026/02/11 15:58:27 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Zombie
-SRCS		= ./newZombie.cpp ./randomChump.cpp ./Zombie.cpp ./main.cpp
+SRCS		= ./main.cpp ./Weapon.cpp ./HumanB.cpp ./HumanA.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
