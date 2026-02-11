@@ -6,16 +6,18 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:17:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 15:46:44 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/12 00:34:15 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon) {
+HumanA::HumanA(std::string name, Weapon& weapon)
+	: weapon(weapon)
+{
 	std::cout << "HumanA constructor called" << std::endl;
 	this->name = name;
-	this->weapon = weapon;
+	
 }
 
 HumanA::~HumanA()

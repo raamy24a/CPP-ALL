@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:18:00 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 15:47:17 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/12 00:34:42 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 class HumanA
 {
 public:
-	HumanA(std::string name, Weapon weapon);
+	HumanA(std::string name, Weapon& weapon);
 	~HumanA();
 	void attack();
 private:
 	std::string name;
-	Weapon weapon;
+	Weapon &weapon;
 };
