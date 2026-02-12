@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 02:15:56 by radib             #+#    #+#             */
-/*   Updated: 2026/02/12 14:42:19 by radib            ###   ########.fr       */
+/*   Created: 2026/02/12 02:11:08 by radib             #+#    #+#             */
+/*   Updated: 2026/02/12 15:28:17 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <bsd/string.h>
+#include "Harl.hpp"
+
+int main(int argc, char **argv)
+{
+	
+}

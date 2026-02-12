@@ -6,12 +6,12 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/12 12:53:48 by radib            ###   ########.fr        #
+#    Updated: 2026/02/12 15:33:22 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= violance
-SRCS		= ./main.cpp ./Weapon.cpp ./HumanB.cpp ./HumanA.cpp
+NAME		= Replace
+SRCS		= ./main.cpp ./Harl.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
