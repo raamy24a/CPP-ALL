@@ -6,11 +6,10 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 02:15:56 by radib             #+#    #+#             */
-/*   Updated: 2026/02/12 14:42:19 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/12 17:43:09 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include <bsd/string.h>

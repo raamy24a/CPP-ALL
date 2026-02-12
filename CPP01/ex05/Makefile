@@ -6,11 +6,11 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/12 15:33:22 by radib            ###   ########.fr        #
+#    Updated: 2026/02/12 20:40:45 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Replace
+NAME		= Harl
 SRCS		= ./main.cpp ./Harl.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
