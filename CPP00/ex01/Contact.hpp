@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:00:59 by radib             #+#    #+#             */
-/*   Updated: 2026/02/09 15:14:36 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/14 21:14:33 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <iostream>
-
+#include <cctype>
+#include <cstdlib>
 class Contact {
 public:
 	void add();
