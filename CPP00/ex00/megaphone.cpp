@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:07:59 by radib             #+#    #+#             */
-/*   Updated: 2026/02/05 00:51:33 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/14 16:16:48 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		while(argv[i] && argv[i][j])
+		while(argv[i])
 		{
 			j = 0;
 			while(argv[i][j])
