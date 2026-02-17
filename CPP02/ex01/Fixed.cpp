@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/02/16 16:10:01 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/17 11:51:31 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &to_copy)
+Fixed::Fixed(const Fixed &to_copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->fixed_point = to_copy.fixed_point;
 }
 Fixed::~Fixed()
 {
-	std::cout << "Fixed destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits( void) const
@@ -39,21 +39,21 @@ void Fixed::setRawBits( int const raw)
 }
 float Fixed::toFloat( void ) const
 {
-	this->fixed_point << 8;
+	return (this->fixed_point / 256.0);
 }
 int Fixed::toInt( void ) const
 {
-	this->fixed_point >> 8;
+	return (this->fixed_point / 256);
 }
 Fixed::Fixed(const int const_integer)
 {
-	this->fixed_point = const_integer;
-	this->fixed_point << 8;
+	std::cout << "Int constructor called" << std::endl;
+	this->fixed_point = const_integer * 256;
 }
 Fixed::Fixed(const float const_float)
 {
-	this->fixed_point = const_float;
-	this->fixed_point >> 8;
+	std::cout << "Float constructor called" << std::endl;
+	this->fixed_point = const_float * 256;
 }
 	
 Fixed& Fixed::operator=(const Fixed& other)
@@ -64,6 +64,9 @@ Fixed& Fixed::operator=(const Fixed& other)
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
-void operator<<(float)
+
+std::ostream& operator<<(std::ostream& stream, const Fixed& fixed)
 {
-	std::cout << 
+	stream << fixed.toFloat();
+	return stream;
+}
