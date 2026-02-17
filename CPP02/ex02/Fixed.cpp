@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/02/17 13:18:34 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/17 15:05:03 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,27 +72,38 @@ std::ostream& operator<<(std::ostream& stream, const Fixed& fixed)
 }
 bool Fixed::operator>(const Fixed& other)
 {
-	
+	if (this->fixed_point > other->fixed_point)
+		return true;
+	return false;
 }
 bool Fixed::operator<(const Fixed& other)
 {
-	
-}
+	if (this->fixed_point < other->fixed_point)	
+		return true;
+	return false;
 bool Fixed::operator>=(const Fixed& other)
-{
-	
+{	
+	if (this->fixed_point >= other->fixed_point)	
+		return true;
+	return false;
 }
 bool Fixed::operator<=(const Fixed& other)
-{
-	
+{	
+	if (this->fixed_point <= other->fixed_point)
+		return true;
+	return false;
 }
 bool Fixed::operator==(const Fixed& other)
-{
-	
+{	
+	if (this->fixed_point == other->fixed_point)
+		return true;
+	return false;
 }
 bool Fixed::operator!=(const Fixed& other)
-{
-	
+{	
+	if (this->fixed_point != other->fixed_point)
+		return true;
+	return false;
 }
 Fixed& Fixed::operator+(const Fixed& other)
 {

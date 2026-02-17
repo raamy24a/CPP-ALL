@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:55 by radib             #+#    #+#             */
-/*   Updated: 2026/02/17 13:16:31 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/17 14:59:38 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ public:
 	Fixed(const float const_float);
 	Fixed(const Fixed &to_copy);
 	Fixed& operator=(const Fixed& other);
-	Fixed& operator>(const Fixed& other);
-	Fixed& operator<(const Fixed& other);
-	Fixed& operator>=(const Fixed& other);
-	Fixed& operator<=(const Fixed& other);
-	Fixed& operator==(const Fixed& other);
-	Fixed& operator!=(const Fixed& other);
+	bool operator>(const Fixed& other);
+	bool operator<(const Fixed& other);
+	bool operator>=(const Fixed& other);
+	bool operator<=(const Fixed& other);
+	bool operator==(const Fixed& other);
+	bool operator!=(const Fixed& other);
 	Fixed& operator+(const Fixed& other);
 	Fixed& operator-(const Fixed& other);
 	Fixed& operator*(const Fixed& other);
