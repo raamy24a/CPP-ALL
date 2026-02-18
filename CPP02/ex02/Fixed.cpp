@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/02/18 09:50:42 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/18 10:03:36 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,37 +70,37 @@ std::ostream& operator<<(std::ostream& stream, const Fixed& fixed)
 	stream << fixed.toFloat();
 	return stream;
 }
-bool Fixed::operator>(const Fixed& other)
+bool Fixed::operator>(const Fixed& other) const
 {
 	if (this->fixed_point > other.fixed_point)
 		return true;
 	return false;
 }
-bool Fixed::operator<(const Fixed& other)
+bool Fixed::operator<(const Fixed& other) const
 {
 	if (this->fixed_point < other.fixed_point)	
 		return true;
 	return false;
 }
-bool Fixed::operator>=(const Fixed& other)
+bool Fixed::operator>=(const Fixed& other) const
 {	
 	if (this->fixed_point >= other.fixed_point)	
 		return true;
 	return false;
 }
-bool Fixed::operator<=(const Fixed& other)
+bool Fixed::operator<=(const Fixed& other) const
 {	
 	if (this->fixed_point <= other.fixed_point)
 		return true;
 	return false;
 }
-bool Fixed::operator==(const Fixed& other)
+bool Fixed::operator==(const Fixed& other) const
 {	
 	if (this->fixed_point == other.fixed_point)
 		return true;
 	return false;
 }
-bool Fixed::operator!=(const Fixed& other)
+bool Fixed::operator!=(const Fixed& other) const
 {	
 	if (this->fixed_point != other.fixed_point)
 		return true;
@@ -146,25 +146,25 @@ void Fixed::operator--(int)
 	this->fixed_point - 1;
 	this->fixed_point / 256;
 }
-static Fixed& max(const Fixed& first, const Fixed& second)
+const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
 {
 	if (first < second)
 		return second;
 	return first;
 }
-static Fixed& min(const Fixed& first, const Fixed& second)
+const Fixed& Fixed::min(const Fixed& first, const Fixed& second)
 {
 	if (first < second)
 		return second;
 	return first;
 }
-static Fixed& max( Fixed& first,  Fixed& second)
+Fixed& Fixed::max( Fixed& first,  Fixed& second)
 {
 	if (first < second)
 		return second;
 	return first;
 }
-static Fixed& min( Fixed& first,  Fixed& second)
+Fixed& Fixed::min( Fixed& first,  Fixed& second)
 {
 	if (first > second)
 		return second;
