@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/02/17 15:05:03 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/18 09:50:42 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,68 +72,101 @@ std::ostream& operator<<(std::ostream& stream, const Fixed& fixed)
 }
 bool Fixed::operator>(const Fixed& other)
 {
-	if (this->fixed_point > other->fixed_point)
+	if (this->fixed_point > other.fixed_point)
 		return true;
 	return false;
 }
 bool Fixed::operator<(const Fixed& other)
 {
-	if (this->fixed_point < other->fixed_point)	
+	if (this->fixed_point < other.fixed_point)	
 		return true;
 	return false;
+}
 bool Fixed::operator>=(const Fixed& other)
 {	
-	if (this->fixed_point >= other->fixed_point)	
+	if (this->fixed_point >= other.fixed_point)	
 		return true;
 	return false;
 }
 bool Fixed::operator<=(const Fixed& other)
 {	
-	if (this->fixed_point <= other->fixed_point)
+	if (this->fixed_point <= other.fixed_point)
 		return true;
 	return false;
 }
 bool Fixed::operator==(const Fixed& other)
 {	
-	if (this->fixed_point == other->fixed_point)
+	if (this->fixed_point == other.fixed_point)
 		return true;
 	return false;
 }
 bool Fixed::operator!=(const Fixed& other)
 {	
-	if (this->fixed_point != other->fixed_point)
+	if (this->fixed_point != other.fixed_point)
 		return true;
 	return false;
 }
-Fixed& Fixed::operator+(const Fixed& other)
+void Fixed::operator+(const Fixed& other)
 {
-	
+	this->fixed_point += other.fixed_point;
 }
-Fixed& Fixed::operator-(const Fixed& other)
+void Fixed::operator-(const Fixed& other)
 {
-	
+	this->fixed_point -= other.fixed_point;
 }
-Fixed& Fixed::operator*(const Fixed& other)
+void Fixed::operator*(const Fixed& other)
 {
-	
+	this->fixed_point *= other.fixed_point;
 }
-Fixed& Fixed::operator/(const Fixed& other)
+void Fixed::operator/(const Fixed& other)
 {
-	
+	this->fixed_point /= other.fixed_point;
 }
-Fixed& Fixed::operator++()
+void Fixed::operator++()
 {
-	
+	this->fixed_point * 256;
+	this->fixed_point + 1;
+	this->fixed_point / 256;
 }
-Fixed& Fixed::operator--()
+void Fixed::operator--()
 {
-	
+	this->fixed_point * 256;
+	this->fixed_point - 1;
+	this->fixed_point / 256;
 }
-Fixed& Fixed::operator++(int)
+void Fixed::operator++(int)
 {
-	
+	this->fixed_point * 256;
+	this->fixed_point + 1;
+	this->fixed_point / 256;
 }
-Fixed& Fixed::operator--(int)
+void Fixed::operator--(int)
 {
-	
+	this->fixed_point * 256;
+	this->fixed_point - 1;
+	this->fixed_point / 256;
+}
+static Fixed& max(const Fixed& first, const Fixed& second)
+{
+	if (first < second)
+		return second;
+	return first;
+}
+static Fixed& min(const Fixed& first, const Fixed& second)
+{
+	if (first < second)
+		return second;
+	return first;
+}
+static Fixed& max( Fixed& first,  Fixed& second)
+{
+	if (first < second)
+		return second;
+	return first;
+}
+static Fixed& min( Fixed& first,  Fixed& second)
+{
+	if (first > second)
+		return second;
+	return first;
 }

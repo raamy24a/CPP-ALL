@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:55 by radib             #+#    #+#             */
-/*   Updated: 2026/02/17 14:59:38 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/18 09:28:56 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,24 @@ public:
 	bool operator<=(const Fixed& other);
 	bool operator==(const Fixed& other);
 	bool operator!=(const Fixed& other);
-	Fixed& operator+(const Fixed& other);
-	Fixed& operator-(const Fixed& other);
-	Fixed& operator*(const Fixed& other);
-	Fixed& operator/(const Fixed& other);
-	Fixed& operator++();
-	Fixed& operator--();
-	Fixed& operator++(int);
-	Fixed& operator--(int);
+	void operator+(const Fixed& other);
+	void operator-(const Fixed& other);
+	void operator*(const Fixed& other);
+	void operator/(const Fixed& other);
+	void operator++();
+	void operator--();
+	void operator++(int);
+	void operator--(int);
 	float toFloat( void ) const;
 	int toInt( void ) const;
 	int getRawBits( void) const;
 	void setRawBits( int const raw);
 	~Fixed();
+	static Fixed& max(const Fixed& first, const Fixed& second);
+	static Fixed& min(const Fixed& first, const Fixed& second);
+	static Fixed& max( Fixed& first,  Fixed& second);
+	static Fixed& min( Fixed& first,  Fixed& second);
+
 private:
 	int fixed_point;
 	static const int fractional_bits = 8;
