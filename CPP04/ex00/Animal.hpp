@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 12:55:31 by radib             #+#    #+#             */
-/*   Updated: 2026/02/19 13:36:56 by radib            ###   ########.fr       */
+/*   Created: 2026/02/19 14:53:29 by radib             #+#    #+#             */
+/*   Updated: 2026/02/19 15:04:58 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class ScavTrap : public ClapTrap
+class Animal
 {
 public:
-	ScavTrap();
-	ScavTrap(std::string name);
-	~ScavTrap();
-	void attack(const std::string &target);
-	void guardGate();
-
-private:
+	Animal();
+	~Animal();
+protected:
+	std::string type;
 };

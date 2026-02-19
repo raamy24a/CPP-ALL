@@ -6,12 +6,12 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/19 13:26:38 by radib            ###   ########.fr        #
+#    Updated: 2026/02/19 14:50:54 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Diamondtrap
-SRCS		= ./main.cpp ./ClapTrap.cpp ./ScavTrap.cpp ./FragTrap.cpp ./DiamondTrap.cpp
+NAME		= Claptrap
+SRCS		= ./main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98

@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:14:14 by radib             #+#    #+#             */
-/*   Updated: 2026/02/18 14:25:43 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/19 13:22:27 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->name = name;
 	this->energy = 100;
 }
-void highFivesGuys(void)
+void FragTrap::highFivesGuys(void)
 {
 	std::cout << "Hello !!! let's high five guys" << std::endl;
 }
