@@ -6,7 +6,17 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:48 by radib             #+#    #+#             */
-/*   Updated: 2026/02/19 15:09:49 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 01:06:29 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
+
+class Cat : public Animal
+{
+public:
+    Cat();
+    ~Cat();
+private:
+
+};
