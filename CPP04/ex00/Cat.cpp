@@ -6,17 +6,17 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:48 by radib             #+#    #+#             */
-/*   Updated: 2026/02/20 01:06:29 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 01:26:38 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
-class Cat : public Animal
+Cat::Cat()
 {
-public:
-    Cat();
-    ~Cat();
-private:
-
-};
+    std::cout << "Default Cat constructor called" << std::endl;
+}
+Cat::~Cat()
+{
+    std::cout << "Default Cat destructor called" << std::endl;
+}

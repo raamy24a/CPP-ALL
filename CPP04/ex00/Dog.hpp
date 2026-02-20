@@ -6,7 +6,18 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:50 by radib             #+#    #+#             */
-/*   Updated: 2026/02/19 15:09:51 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 01:49:29 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
+
+class Dog : public Animal
+{
+public:
+    Dog();
+    ~Dog();
+    makeSound();
+private:
+
+};
