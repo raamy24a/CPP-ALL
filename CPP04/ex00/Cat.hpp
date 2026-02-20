@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:47 by radib             #+#    #+#             */
-/*   Updated: 2026/02/20 01:49:35 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 14:48:59 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Cat : public Animal
 public:
     Cat();
     ~Cat();
-    makeSound();
+    void makeSound();
 private:
-
+	std::string type;
 };

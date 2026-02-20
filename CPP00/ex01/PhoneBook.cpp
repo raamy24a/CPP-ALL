@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:37:28 by radib             #+#    #+#             */
-/*   Updated: 2026/02/09 16:30:50 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 11:43:54 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,13 @@ void PhoneBook::search(int index)
 	{
 		input(temp, "index:\n");
 		index_print = std::atoi(temp.c_str());
+		if (index == 0)
+		{
+			std::cout << "No valid index yet please create one first" << std::endl;
+			break ;
+		}
+		if (std::cin.eof())
+			return ;
 		if (index_print < 8 && index_print >= 0 && index >= index_print)
 		{
 			std::cout << contact_list[index_print].getter_first_name() << std::endl;

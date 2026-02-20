@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 12:49:27 by radib             #+#    #+#             */
-/*   Updated: 2026/02/15 05:05:44 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 11:38:14 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,26 @@ static bool input_phone_number(std::string &destination, std::string label)
 void Contact::add()
 {
 
-	while (!input(first_name, "first name:\n"))
+	while (!input(first_name, "first name:\n") && !std::cin.eof())
 		;
-	while (!input(last_name, "last name:\n"))
+	if (std::cin.eof())
+		return ;
+	while (!input(last_name, "last name:\n") && !std::cin.eof())
 		;
-	while (!input(nickname, "nickname:\n"))
+	if (std::cin.eof())
+		return ;
+	while (!input(nickname, "nickname:\n") && !std::cin.eof())
 		;
-	while (!input_phone_number(phone_number, "phone number:\n"))
+	if (std::cin.eof())
+		return ;
+	while (!input_phone_number(phone_number, "phone number:\n") && !std::cin.eof())
 		;
-	while (!input(darkest_secret, "darkest secret:\n"))
+	if (std::cin.eof())
+		return ;
+	while (!input(darkest_secret, "darkest secret:\n") && !std::cin.eof())
 		;
+	if (std::cin.eof())
+		return ;
 }
 std::string Contact::getter_first_name() { return (first_name); }
 std::string Contact::getter_last_name() { return (last_name); }

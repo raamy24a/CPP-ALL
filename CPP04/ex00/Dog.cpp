@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:45 by radib             #+#    #+#             */
-/*   Updated: 2026/02/20 01:27:39 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 14:47:57 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,8 @@ Dog::Dog()
 Dog::~Dog()
 {
     std::cout << "Default Dog destructor called" << std::endl;
+}
+void Dog::makeSound()
+{
+    std::cout << "BARK BARK BARK rrrrrrrrrrrr" << std::endl;
 }

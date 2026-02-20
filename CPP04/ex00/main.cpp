@@ -6,9 +6,13 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 14:50:47 by radib             #+#    #+#             */
-/*   Updated: 2026/02/19 14:54:31 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 14:56:56 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
 int main()
 {
@@ -20,6 +24,5 @@ std::cout << i->getType() << " " << std::endl;
 i->makeSound(); //will output the cat sound!
 j->makeSound();
 meta->makeSound();
-...
 return 0;
 }

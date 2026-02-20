@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 15:09:48 by radib             #+#    #+#             */
-/*   Updated: 2026/02/20 14:48:06 by radib            ###   ########.fr       */
+/*   Created: 2026/02/20 12:20:02 by radib             #+#    #+#             */
+/*   Updated: 2026/02/20 14:50:40 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
+WrongCat::WrongCat()
 {
-    std::cout << "Default Cat constructor called" << std::endl;
+    std::cout << "Default WrongCat constructor called" << std::endl;
 }
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-    std::cout << "Default Cat destructor called" << std::endl;
+    std::cout << "Default WrongCat destructor called" << std::endl;
 }
-void Cat::makeSound()
+void makeSound()
 {
-    std::cout << "MIAOUUUUUUUUU MIAOUUUUUUUUUUUUUUUUUUUUU" << std::endl;
+	std::cout << "MOWWW" << std::endl;
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 15:09:48 by radib             #+#    #+#             */
-/*   Updated: 2026/02/20 14:48:06 by radib            ###   ########.fr       */
+/*   Created: 2026/02/20 12:20:14 by radib             #+#    #+#             */
+/*   Updated: 2026/02/20 14:49:47 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Animal.hpp"
 
-Cat::Cat()
+class WrongCat : public Animal
 {
-    std::cout << "Default Cat constructor called" << std::endl;
-}
-Cat::~Cat()
-{
-    std::cout << "Default Cat destructor called" << std::endl;
-}
-void Cat::makeSound()
-{
-    std::cout << "MIAOUUUUUUUUU MIAOUUUUUUUUUUUUUUUUUUUUU" << std::endl;
-}
+public:
+    WrongCat();
+    ~WrongCat();
+    void makeSound();
+private:
+	std::string type;
+};

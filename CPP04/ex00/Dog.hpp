@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:50 by radib             #+#    #+#             */
-/*   Updated: 2026/02/20 01:49:29 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/20 14:49:07 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Dog : public Animal
 public:
     Dog();
     ~Dog();
-    makeSound();
+    void makeSound();
 private:
-
+	std::string type;
 };
