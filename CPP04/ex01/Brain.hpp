@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 12:20:14 by radib             #+#    #+#             */
-/*   Updated: 2026/02/22 02:17:11 by radib            ###   ########.fr       */
+/*   Created: 2026/02/19 14:53:29 by radib             #+#    #+#             */
+/*   Updated: 2026/02/22 04:14:18 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 #include "Animal.hpp"
 
-class WrongCat : public Animal
+class Brain
 {
 public:
-    WrongCat();
-    ~WrongCat();
-    void makeSound() const;
-    const std::string getType() const;
+	Brain();
+	~Brain();
+	virtual const std::string getIdeas() const;
 private:
-	std::string type;
+	std::string ideas[100];
 };
+
+#endif

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 12:20:14 by radib             #+#    #+#             */
-/*   Updated: 2026/02/22 02:17:11 by radib            ###   ########.fr       */
+/*   Created: 2026/02/22 04:20:34 by radib             #+#    #+#             */
+/*   Updated: 2026/02/22 04:36:50 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
-class WrongCat : public Animal
+Brain::Brain()
 {
-public:
-    WrongCat();
-    ~WrongCat();
-    void makeSound() const;
-    const std::string getType() const;
-private:
-	std::string type;
-};
+    std::cout << "Default Brain constructor called" << std::endl;
+}
+Brain::~Brain()
+{
+    std::cout << "Default Brain destructor called" << std::endl;
+}
