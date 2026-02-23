@@ -6,16 +6,18 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:48 by radib             #+#    #+#             */
-/*   Updated: 2026/02/22 02:25:04 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/23 02:31:36 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat()
 {
     std::cout << "Default Cat constructor called" << std::endl;
     this->type = "Cat";
+    new Brain();
 }
 Cat::~Cat()
 {
