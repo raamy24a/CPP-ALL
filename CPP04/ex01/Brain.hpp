@@ -19,7 +19,11 @@ class Brain
 public:
 	Brain();
 	~Brain();
-	virtual const std::string getIdeas() const;
+	Brain(const Brain& copy);
+	std::string getIdeas(int index) const;
+	void setIdea(std::string idea, int index);
+	Brain &operator=(const Brain &other);
+
 private:
 	std::string ideas[100];
 };

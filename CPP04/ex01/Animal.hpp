@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 14:53:29 by radib             #+#    #+#             */
-/*   Updated: 2026/02/22 04:14:18 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/23 15:39:17 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ class Animal
 {
 public:
 	Animal();
+	virtual ~Animal();
+	Animal(const Animal& copy);
 	virtual const std::string getType() const;
-	~Animal();
     virtual void makeSound() const;
+	Animal& operator=(const Animal& other);
 protected:
 	std::string type;
 };
