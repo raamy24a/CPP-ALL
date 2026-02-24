@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 12:20:02 by radib             #+#    #+#             */
-/*   Updated: 2026/02/24 01:49:20 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/23 22:38:28 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ WrongCat::~WrongCat()
 {
     std::cout << "Default WrongCat destructor called" << std::endl;
 }
-WrongCat::WrongCat(const WrongCat& copy) : Animal(copy)
+WrongCat::WrongCat(const WrongCat& copy)
 {
 }
 WrongCat& WrongCat::operator=(const WrongCat& other)
 {
-    (void) other;
 	return *this;
 }
 void WrongCat::makeSound() const

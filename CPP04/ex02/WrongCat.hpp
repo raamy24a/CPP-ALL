@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 12:20:14 by radib             #+#    #+#             */
-/*   Updated: 2026/02/24 01:16:34 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/22 02:17:11 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ class WrongCat : public Animal
 public:
     WrongCat();
     ~WrongCat();
-    WrongCat(const WrongCat& copy);
-    WrongCat& operator=(const WrongCat& other);
     void makeSound() const;
     const std::string getType() const;
 private:

@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:48 by radib             #+#    #+#             */
-/*   Updated: 2026/02/24 01:12:58 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/23 22:33:13 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cat::~Cat()
     std::cout << "Default Cat destructor called" << std::endl;
 	delete this->brain;
 }
-Cat::Cat(const Cat& copy) : Animal(copy)
+Cat::Cat(const Cat& copy)
 {
 	this->brain = new Brain(*copy.brain);
 }
