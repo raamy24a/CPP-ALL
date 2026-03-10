@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:09:50 by radib             #+#    #+#             */
-/*   Updated: 2026/02/23 15:18:20 by radib            ###   ########.fr       */
+/*   Updated: 2026/02/23 23:19:15 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Dog : public Animal
 {
 public:
     Dog();
-    ~Dog();
     Dog(const Dog& copy);
-	Dog& operator=(const Dog& other);
+    Dog& operator=(const Dog& other);
+    ~Dog();
     void makeSound() const;
     const std::string getType() const;
 	Brain& getBrain();
