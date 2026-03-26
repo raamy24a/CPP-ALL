@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/02/17 10:49:46 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 18:19:07 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &to_copy)
+Fixed::Fixed(const Fixed &to_copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->fixed_point = to_copy.fixed_point;

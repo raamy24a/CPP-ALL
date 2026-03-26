@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:02:56 by radib             #+#    #+#             */
-/*   Updated: 2026/02/11 13:32:36 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/02 11:13:28 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ Zombie::Zombie() {
 
 Zombie::~Zombie()
 {
-	std::cout << "Default Zombie destructor called" << std::endl;
+	std::cout << "Zombie destructor called : " << this->name << std::endl;
 }

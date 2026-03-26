@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:17:57 by radib             #+#    #+#             */
-/*   Updated: 2026/02/12 00:34:15 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/03 13:14:54 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ HumanA::HumanA(std::string name, Weapon& weapon)
 {
 	std::cout << "HumanA constructor called" << std::endl;
 	this->name = name;
-	
 }
 
 HumanA::~HumanA()

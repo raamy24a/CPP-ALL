@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:02:56 by radib             #+#    #+#             */
-/*   Updated: 2026/02/10 16:05:28 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 17:40:55 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	Zombie::announce( void)
 	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::Zombie(std::string name) {
+Zombie::Zombie(const std::string& n) : name(n)
+{
 	std::cout << "Zombie constructor called" << std::endl;
-	this->name = name;		
 }
 
-Zombie::Zombie() {
+Zombie::Zombie() : name("Default")
+{
 	std::cout << "Default Zombie constructor called" << std::endl;
-	this->name = "Default";		
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Default Zombie destructor called" << std::endl;
+	std::cout << "Zombie destructor called : " << this->name << std::endl;
 }

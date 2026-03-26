@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:28:37 by radib             #+#    #+#             */
-/*   Updated: 2026/02/12 21:21:55 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 18:05:15 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ public:
     Harl();
     ~Harl();
     void complain( std::string level );
+	void complain_switch( int level );
 
 private:
     void debug( void );

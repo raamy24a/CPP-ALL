@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 10:07:23 by radib             #+#    #+#             */
-/*   Updated: 2026/02/19 14:01:40 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 18:43:53 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int main()
 {
 	DiamondTrap gabin = DiamondTrap("Diamond Gabin");
-	FragTrap colin = FragTrap("Scav Colin");
+	// FragTrap colin = FragTrap("Scav Colin");
 	
-	gabin.attack("Colin");
-	colin.takeDamage(0);
+	// gabin.attack("Colin");
+	// colin.takeDamage(0);
 }

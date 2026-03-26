@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 02:11:08 by radib             #+#    #+#             */
-/*   Updated: 2026/02/12 17:40:56 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 17:56:49 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int main(int argc, char **argv)
 {
 	std::string current_line;
 	int			pos;
-    if (argc != 4)
-        return (std::cout << "wrong number of args" << std::endl, 0);;
+    if (argc != 4) {
+		std::cerr << "Usage: ./Replace <file> <str_to_replace> <str_replace>" << std::endl;
+        return (1);
+	}
 	std::string	new_file = argv[1];
 	new_file += ".replace";
     std::ifstream in(argv[1]);
@@ -33,4 +35,5 @@ int main(int argc, char **argv)
 	}
 	out.close();
 	in.close();
+	return (0);
 }

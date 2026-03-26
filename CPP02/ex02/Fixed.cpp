@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/02/18 10:03:36 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/26 15:57:50 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-std::ostream& operator<<(std::ostream& stream, const Fixed& fixed)
-{
-	stream << fixed.toFloat();
-	return stream;
-}
 bool Fixed::operator>(const Fixed& other) const
 {
 	if (this->fixed_point > other.fixed_point)
@@ -106,45 +101,53 @@ bool Fixed::operator!=(const Fixed& other) const
 		return true;
 	return false;
 }
-void Fixed::operator+(const Fixed& other)
+Fixed Fixed::operator+(const Fixed& other)
 {
 	this->fixed_point += other.fixed_point;
+	return (*this);
 }
-void Fixed::operator-(const Fixed& other)
+Fixed Fixed::operator-(const Fixed& other)
 {
 	this->fixed_point -= other.fixed_point;
+	return (*this);
 }
-void Fixed::operator*(const Fixed& other)
+Fixed Fixed::operator*(const Fixed& other)
 {
 	this->fixed_point *= other.fixed_point;
+	return (*this);
 }
-void Fixed::operator/(const Fixed& other)
+Fixed Fixed::operator/(const Fixed& other)
 {
 	this->fixed_point /= other.fixed_point;
+	return (*this);
 }
-void Fixed::operator++()
+Fixed Fixed::operator++()
 {
-	this->fixed_point * 256;
-	this->fixed_point + 1;
-	this->fixed_point / 256;
+	this->fixed_point *= 256;
+	this->fixed_point += 1;
+	this->fixed_point /= 256;
+	return (*this);
 }
-void Fixed::operator--()
+Fixed Fixed::operator--()
 {
-	this->fixed_point * 256;
-	this->fixed_point - 1;
-	this->fixed_point / 256;
+	this->fixed_point *= 256;
+	this->fixed_point -= 1;
+	this->fixed_point /= 256;
+	return (*this);
 }
-void Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
-	this->fixed_point * 256;
-	this->fixed_point + 1;
-	this->fixed_point / 256;
+	this->fixed_point *= 256;
+	this->fixed_point += 1;
+	this->fixed_point /= 256;
+	return (*this);
 }
-void Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-	this->fixed_point * 256;
-	this->fixed_point - 1;
-	this->fixed_point / 256;
+	this->fixed_point *= 256;
+	this->fixed_point -= 1;
+	this->fixed_point /= 256;
+	return (*this);
 }
 const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
 {
@@ -169,4 +172,9 @@ Fixed& Fixed::min( Fixed& first,  Fixed& second)
 	if (first > second)
 		return second;
 	return first;
+}
+std::ostream& operator<<(std::ostream& stream, const Fixed& fixed)
+{
+	stream << fixed.toFloat();
+	return stream;
 }

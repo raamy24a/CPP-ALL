@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:28:34 by radib             #+#    #+#             */
-/*   Updated: 2026/02/12 21:27:33 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 18:11:31 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,30 @@ void Harl::complain( std::string level )
     }
     
 }
+
+// enum lvl {
+// 	DEBUG,
+// 	INFO,
+// 	WARNING,
+// 	ERROR
+// };
+
+// void Harl::complain_switch( int level )
+// {
+// 	switch(level) {
+// 		case DEBUG:
+// 			debug();
+// 			break;
+// 		case INFO:
+// 			info();
+// 			break;
+// 		case WARNING:
+// 			warning();
+// 			break;
+// 		case ERROR:
+// 			error();
+// 			break;
+// 		default:
+// 			std::cerr << "Error: complain not known" << std::endl;
+// 	}
+// }

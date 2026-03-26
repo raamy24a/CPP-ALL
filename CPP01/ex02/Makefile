@@ -6,11 +6,11 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/11 14:13:05 by radib            ###   ########.fr        #
+#    Updated: 2026/02/27 12:06:39 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Zombie
+NAME		= Pointers
 SRCS		= ./main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f

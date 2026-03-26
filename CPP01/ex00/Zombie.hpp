@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:02:59 by radib             #+#    #+#             */
-/*   Updated: 2026/02/10 15:59:38 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/25 17:27:29 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 
 class Zombie {
 public:
-	Zombie();
-	Zombie(std::string name);
+	Zombie(void);
+	Zombie(const std::string& n);
+	~Zombie(void);
+	
 	void announce( void );
-	~Zombie();
 private:
 	std::string name;
 };
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+
+Zombie*	newZombie(const std::string& name );
+void	randomChump(const std::string& name );
 
 #endif
