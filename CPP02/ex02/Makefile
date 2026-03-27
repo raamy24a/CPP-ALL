@@ -6,7 +6,7 @@
 #    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/13 13:20:21 by radib            ###   ########.fr        #
+#    Updated: 2026/03/27 14:05:42 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= Fixed
 SRCS		= ./main.cpp ./Fixed.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
-FLAGS		= -Wall -Wextra -Werror -g -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 COMPILER	= c++
 
 .cpp.o:

@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:55 by radib             #+#    #+#             */
-/*   Updated: 2026/03/26 15:17:00 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/27 13:07:50 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ public:
 	~Fixed();
 	Fixed& operator=(const Fixed& other);
 	
-	float toFloat( void ) const;
-	int toInt( void ) const;
-	int getRawBits( void) const;
-	void setRawBits( int const raw);
+	int 	toInt( void ) const;
+	int 	getRawBits( void) const;
+	void 	setRawBits( int const raw);
+	float 	toFloat( void ) const;
 
-	static const 	Fixed& max(const Fixed& first, const Fixed& second);
-	static const 	Fixed& min(const Fixed& first, const Fixed& second);
 	static 			Fixed& max( Fixed& first,  Fixed& second);
 	static 			Fixed& min( Fixed& first,  Fixed& second);
+	static const 	Fixed& max(const Fixed& first, const Fixed& second);
+	static const 	Fixed& min(const Fixed& first, const Fixed& second);
 
 	bool	operator>(const Fixed& other) const;
 	bool	operator<(const Fixed& other) const;

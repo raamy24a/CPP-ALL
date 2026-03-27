@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/03/26 15:57:50 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/27 13:28:19 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,51 +103,43 @@ bool Fixed::operator!=(const Fixed& other) const
 }
 Fixed Fixed::operator+(const Fixed& other)
 {
-	this->fixed_point += other.fixed_point;
-	return (*this);
+	return (this->toFloat() + other.toFloat());
 }
 Fixed Fixed::operator-(const Fixed& other)
 {
-	this->fixed_point -= other.fixed_point;
-	return (*this);
+	return (this->toFloat() - other.toFloat());
 }
 Fixed Fixed::operator*(const Fixed& other)
 {
-	this->fixed_point *= other.fixed_point;
-	return (*this);
+	return (this->toFloat() * other.toFloat());
 }
 Fixed Fixed::operator/(const Fixed& other)
 {
-	this->fixed_point /= other.fixed_point;
-	return (*this);
+	return (this->toFloat() * other.toFloat());
 }
 Fixed Fixed::operator++()
 {
-	this->fixed_point *= 256;
-	this->fixed_point += 1;
-	this->fixed_point /= 256;
+	++this->fixed_point;
 	return (*this);
 }
 Fixed Fixed::operator--()
 {
-	this->fixed_point *= 256;
-	this->fixed_point -= 1;
-	this->fixed_point /= 256;
+	--this->fixed_point;
 	return (*this);
 }
 Fixed Fixed::operator++(int)
 {
-	this->fixed_point *= 256;
-	this->fixed_point += 1;
-	this->fixed_point /= 256;
-	return (*this);
+	Fixed temp(*this);
+
+	temp.fixed_point = this->fixed_point++;
+	return (temp);
 }
 Fixed Fixed::operator--(int)
 {
-	this->fixed_point *= 256;
-	this->fixed_point -= 1;
-	this->fixed_point /= 256;
-	return (*this);
+	Fixed temp(*this);
+
+	temp.fixed_point = this->fixed_point--;
+	return (temp);
 }
 const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
 {
