@@ -1,28 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 10:17:22 by radib             #+#    #+#             */
-/*   Updated: 2026/03/29 11:46:32 by radib            ###   ########.fr       */
+/*   Updated: 2026/03/29 09:58:56 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
-
-class AMateria
-{
-protected:
-
-public:
-	AMateria(std::string const & type);
-	std::string const & getType() const; //Returns the materia type
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
-};
-
-#endif
