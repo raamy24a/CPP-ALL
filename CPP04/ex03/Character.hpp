@@ -5,25 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 10:21:29 by radib             #+#    #+#             */
-/*   Updated: 2026/03/29 11:44:48 by radib            ###   ########.fr       */
+/*   Created: 2026/04/01 08:08:49 by radib             #+#    #+#             */
+/*   Updated: 2026/04/01 09:44:29 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-#ifndef ICHARACTER_HPP
-#define ICHARACTER_HPP
+class Character : public ICharacter {
+private:
+    std::string _name;
+    AMateria*   _inventory[4];
+    AMateria*   _floor[10000];
 
-class ICharacter
-{
 public:
-    virtual ~ICharacter() {}
-    virtual std::string const& getName() const = 0;
-    virtual void equip(AMateria* m) = 0;
-    virtual void unequip(int idx) = 0;
-    virtual void use(int idx, ICharacter& target) = 0;
-};
+    Character(std::string name);
+    Character(const Character& other);
+    Character& operator=(const Character& other);
+    ~Character();
 
-# endif
+    std::string const& getName() const;
+    void equip(AMateria* m);
+    void unequip(int idx);
+    void use(int idx, ICharacter& target);
+};
