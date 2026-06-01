@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: radib <radib@student.s19.be>               +#+  +:+       +#+         #
+#    By: radib <radib@student.42belgium.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/02/23 13:47:42 by radib            ###   ########.fr        #
+#    Updated: 2026/06/01 11:22:26 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= animals
-SRCS		= ./main.cpp ./Dog.cpp ./Cat.cpp ./Animal.cpp ./WrongCat.cpp ./Brain.cpp
+NAME		= 
+SRCS		= 
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98

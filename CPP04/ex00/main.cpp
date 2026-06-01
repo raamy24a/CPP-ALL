@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
+/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 14:50:47 by radib             #+#    #+#             */
-/*   Updated: 2026/02/22 04:06:04 by radib            ###   ########.fr       */
+/*   Updated: 2026/05/28 14:17:52 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,11 @@ i->makeSound(); //will output the cat sound!
 j->makeSound();
 k->makeSound();
 meta->makeSound();
+
+delete meta;
+delete j;
+delete k;
+delete i;
+
 return 0;
 }

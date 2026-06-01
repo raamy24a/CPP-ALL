@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 12:28:53 by radib             #+#    #+#             */
-/*   Updated: 2026/03/25 18:22:59 by radib            ###   ########.fr       */
+/*   Updated: 2026/04/28 14:13:05 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ float Fixed::toFloat( void ) const
 }
 int Fixed::toInt( void ) const
 {
-	return (this->fixed_point >> fractional_bits);
+	return (this->fixed_point / 256.0);
 }
 Fixed::Fixed(const int const_integer)
 {
