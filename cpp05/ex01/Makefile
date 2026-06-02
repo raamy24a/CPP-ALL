@@ -6,12 +6,12 @@
 #    By: radib <radib@student.42belgium.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/06/01 11:22:26 by radib            ###   ########.fr        #
+#    Updated: 2026/06/02 10:57:50 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
-SRCS		= 
+NAME		= Bureaucrat
+SRCS		= main.cpp Bureaucrat.cpp Form.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
