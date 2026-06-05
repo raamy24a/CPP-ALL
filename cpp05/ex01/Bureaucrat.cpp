@@ -6,15 +6,19 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:39 by radib             #+#    #+#             */
-/*   Updated: 2026/06/04 14:15:00 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/05 17:46:28 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::signForm()
+{
+
+}
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
-    std::cout << "Default Bureaucrat destructor called" << std::endl;
+    std::cout << "Default Bureaucrat constructor called" << std::endl;
 	if (grade <= 0)
 		throw(GradeTooHighException());
 	else if (grade >= 151)

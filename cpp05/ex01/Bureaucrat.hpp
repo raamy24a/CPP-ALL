@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:41 by radib             #+#    #+#             */
-/*   Updated: 2026/06/04 14:12:48 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/05 17:45:48 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ class Bureaucrat
 	public :
 	~Bureaucrat();
 	Bureaucrat(std::string name, int grade);
+	Bureaucrat(const Bureaucrat& other);
+	Bureaucrat& operator=(const Bureaucrat& other);
 	std::string getName();
 	int getGrade();
 	void increment();
 	void decrement();
+	void signForm();
 	private :
 	const std::string 	_name;
 	int 				_grade;
