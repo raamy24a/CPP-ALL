@@ -6,15 +6,23 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:39 by radib             #+#    #+#             */
-/*   Updated: 2026/06/05 17:46:28 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/07 14:21:00 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::signForm()
+void Bureaucrat::signForm(Form& form)
 {
-
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
@@ -37,11 +45,11 @@ char const *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return "Grade is too low, try a value between 1 and 150";
 }
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return (_name);
 }
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 	return (_grade);
 }

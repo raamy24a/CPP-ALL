@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:56:24 by radib             #+#    #+#             */
-/*   Updated: 2026/06/05 17:56:14 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/07 14:05:55 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 Form::Form(int gradeToExec, int gradeToSign, std::string name) : _gradeToExec(gradeToExec), _gradeToSign(gradeToSign), _name(name)
 {
     std::cout << "Default Form constructor called" << std::endl;
+	if (_gradeToExec <= 0)
+		throw(GradeTooHighException());
+	else if (_gradeToExec >= 151)
+		throw(GradeTooLowException());
+	if (_gradeToSign <= 0)
+		throw(GradeTooHighException());
+	else if (_gradeToSign >= 151)
+		throw(GradeTooLowException());
     _signed = false;
 }
 Form::~Form()
@@ -30,19 +38,19 @@ Form& Form::operator=(const Form& other)
     this->_signed = other._signed;
     return (*this);
 }
-std::string 	Form::getName()
+std::string 	Form::getName() const
 {
     return (_name);
 }
-bool			Form::getSigned()
+bool			Form::getSigned() const
 {
     return (_signed);
 }
-const int		Form::getGradeToSign()
+const int		Form::getGradeToSign() const
 {
     return (_gradeToSign);
 }
-const int		Form::getGradeToExec()
+const int		Form::getGradeToExec() const
 {
     return (_gradeToExec);
 }
@@ -64,15 +72,9 @@ std::ostream& operator<<(std::ostream& o, Form& current)
         o << " is currently not signed" << std::endl;
 }
 
-void Form::beSigned()
+void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    try
-    {
-        if (this->getGradeToSign() <= )
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
+    if (this->getGradeToSign() <= bureaucrat.getGrade())
+		throw (Form::GradeTooLowException());
+    this->_signed = true;
 }
