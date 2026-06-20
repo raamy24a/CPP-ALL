@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:56:15 by radib             #+#    #+#             */
-/*   Updated: 2026/06/20 10:14:49 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/20 10:44:34 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
     public :
-		Form(int gradeToExec, int gradeToSign, std::string name);
-		~Form();
-		Form(const Form& other);
-		Form& operator=(const Form& other);
+		AForm(int gradeToExec, int gradeToSign, std::string name);
+		virtual ~AForm();
+		AForm(const AForm& other);
+		AForm& operator=(const AForm& other);
 		std::string 	getName() const;
 		bool			getSigned() const;
-		void			beSigned(const Bureaucrat& bureaucrat);
 		const int		getGradeToSign() const;
 		void 			beSigned(const Bureaucrat& bureaucrat);
 		const int		getGradeToExec() const;
+		virtual void 	execute(Bureaucrat const &executor) const = 0;
+		void			executeForm(AForm const &form);
     private :
 	    const std::string   _name;
 	    bool                _signed;
@@ -44,5 +45,6 @@ class Form
 		};
 } ;
 
-std::ostream& operator<<(std::ostream& o, Form& current);
+std::ostream& operator<<(std::ostream& o, AForm& current);
 #endif
+#pragma once
