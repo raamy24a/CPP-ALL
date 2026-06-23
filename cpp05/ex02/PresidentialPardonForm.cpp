@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 11:00:02 by radib             #+#    #+#             */
-/*   Updated: 2026/06/23 18:16:10 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/23 18:39:50 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(145, 137, "ShrubberyCreationForm") , _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(25, 5, "PresidentialPardonForm") , _target(target)
 {
-	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned())
 		throw(FormNotSigned());
 	executor.executeForm(*this);
-	std::ofstream o((_target + "_shrubbery").c_str());
+	std::cout << this->_target << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+	std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }

@@ -6,36 +6,40 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:56:15 by radib             #+#    #+#             */
-/*   Updated: 2026/06/20 10:44:34 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/23 18:31:36 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#pragma once
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+// #include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class AForm
 {
     public :
-		AForm(int gradeToExec, int gradeToSign, std::string name);
+		AForm(int gradeToSign, int gradeToExec, std::string name);
 		virtual ~AForm();
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
 		std::string 	getName() const;
 		bool			getSigned() const;
-		const int		getGradeToSign() const;
+		int				getGradeToSign() const;
 		void 			beSigned(const Bureaucrat& bureaucrat);
-		const int		getGradeToExec() const;
+		int				getGradeToExec() const;
 		virtual void 	execute(Bureaucrat const &executor) const = 0;
-		void			executeForm(AForm const &form);
-    private :
+    protected :
 	    const std::string   _name;
 	    bool                _signed;
 	    const int           _gradeToSign;
 	    const int           _gradeToExec;
+
 	    class GradeTooHighException : public std::exception {
+			public:
+				virtual char const	*what(void) const throw();
+		};
+		class FormNotSigned : public std::exception {
 			public:
 				virtual char const	*what(void) const throw();
 		};
@@ -46,5 +50,3 @@ class AForm
 } ;
 
 std::ostream& operator<<(std::ostream& o, AForm& current);
-#endif
-#pragma once

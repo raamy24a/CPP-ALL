@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 11:00:02 by radib             #+#    #+#             */
-/*   Updated: 2026/06/23 18:16:10 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/23 18:15:26 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(145, 137, "ShrubberyCreationForm") , _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(72, 45, "RobotomyRequestForm") , _target(target)
 {
-	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned())
 		throw(FormNotSigned());
 	executor.executeForm(*this);
-	std::ofstream o((_target + "_shrubbery").c_str());
+	if (rand() % 2)
+	{
+		std::cout << "BRRRRRRRRRRRRRRRRRRRRRRRRRR this" << this->_target << "has been robotomized" << std::endl;
+	}
+	else
+	{
+		std::cout << "BRRRRRRRRRRRRRRRRRRRRRRRRRR robotomy failed" << std::endl;
+	}
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }

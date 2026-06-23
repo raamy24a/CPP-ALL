@@ -6,16 +6,15 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:41 by radib             #+#    #+#             */
-/*   Updated: 2026/06/07 14:20:29 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/23 18:30:41 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat
 {
@@ -28,7 +27,8 @@ class Bureaucrat
 	int 			getGrade() const;
 	void 			increment();
 	void 			decrement();
-	void 			signForm(Form& form);
+	void 			signForm(AForm& form);
+	void			executeForm(AForm const &form) const;
 	private :
 	const std::string 	_name;
 	int 				_grade;
@@ -42,4 +42,3 @@ class Bureaucrat
 	};
 } ;
 std::ostream& operator<<(std::ostream& o, Bureaucrat& target);
-#endif

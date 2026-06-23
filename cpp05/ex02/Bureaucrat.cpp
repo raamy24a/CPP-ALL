@@ -6,13 +6,13 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:39 by radib             #+#    #+#             */
-/*   Updated: 2026/06/09 15:14:59 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/23 18:45:31 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& form)
 {
 	try
 	{
@@ -44,6 +44,12 @@ char const *Bureaucrat::GradeTooHighException::what(void) const throw()
 char const *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return "Grade is too low, try a value between 1 and 150";
+}
+void	Bureaucrat::executeForm(AForm const &form) const
+{
+	if (this->getGrade() > form.getGradeToExec())
+		throw(GradeTooLowException());
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
 std::string Bureaucrat::getName() const
 {

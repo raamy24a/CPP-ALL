@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 10:49:18 by radib             #+#    #+#             */
-/*   Updated: 2026/06/23 18:39:07 by radib            ###   ########.fr       */
+/*   Created: 2026/06/21 12:22:29 by radib             #+#    #+#             */
+/*   Updated: 2026/06/23 18:40:08 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
- 
-int main()
-{
+#include <fstream>
 
-	return(0);
-}
+class ShrubberyCreationForm : public AForm {
+private:
+	const std::string	_target;
+public:
+	ShrubberyCreationForm(std::string name);
+	~ShrubberyCreationForm();
+	void 	execute(Bureaucrat const &executor) const;
+};

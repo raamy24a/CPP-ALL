@@ -6,13 +6,14 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:56:24 by radib             #+#    #+#             */
-/*   Updated: 2026/06/20 10:44:58 by radib            ###   ########.fr       */
+/*   Updated: 2026/06/23 18:35:47 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-AForm::AForm(int gradeToExec, int gradeToSign, std::string name) : _gradeToExec(gradeToExec), _gradeToSign(gradeToSign), _name(name)
+AForm::AForm(int gradeToExec, int gradeToSign, std::string name) :_name(name), _signed(false), _gradeToSign(gradeToSign),_gradeToExec(gradeToExec) 
 {
     std::cout << "Default AForm constructor called" << std::endl;
 	if (_gradeToExec <= 0)
@@ -29,7 +30,7 @@ AForm::~AForm()
 {
     std::cout << "Default AForm destructor called" << std::endl;
 }
-AForm::AForm(const AForm& other) : _gradeToExec(other._gradeToExec), _gradeToSign(other._gradeToSign), _name(other._name)
+AForm::AForm(const AForm& other) :_name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign),_gradeToExec(other._gradeToExec) 
 {
     _signed = other._signed;
 }
@@ -46,13 +47,17 @@ bool			AForm::getSigned() const
 {
     return (_signed);
 }
-const int		AForm::getGradeToSign() const
+int		AForm::getGradeToSign() const
 {
     return (_gradeToSign);
 }
-const int		AForm::getGradeToExec() const
+int		AForm::getGradeToExec() const
 {
     return (_gradeToExec);
+}
+char const *AForm::FormNotSigned::what(void) const throw()
+{
+	return "Form is not signed";
 }
 
 char const *AForm::GradeTooHighException::what(void) const throw()
@@ -69,7 +74,10 @@ std::ostream& operator<<(std::ostream& o, AForm& current)
     if (current.getSigned())
         o << " is currently signed" << std::endl;
     else
+	{
         o << " is currently not signed" << std::endl;
+	}
+	return (o);
 }
 
 void AForm::beSigned(const Bureaucrat& bureaucrat)
