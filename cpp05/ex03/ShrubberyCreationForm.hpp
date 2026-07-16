@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/07 13:42:23 by radib             #+#    #+#             */
-/*   Updated: 2026/07/15 17:40:51 by radib            ###   ########.fr       */
+/*   Created: 2026/06/21 12:22:29 by radib             #+#    #+#             */
+/*   Updated: 2026/06/23 18:40:08 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
-#include <string>
-#include <iostream>
 
-class ScalarConverter {
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include <fstream>
+
+class ShrubberyCreationForm : public AForm {
 private:
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter& src);
-    ScalarConverter& operator=(const ScalarConverter& src);
-    ~ScalarConverter();
-
+	const std::string	_target;
 public:
-    static void convert(const std::string& literal);
+	ShrubberyCreationForm(std::string name);
+	~ShrubberyCreationForm();
+	void 	execute(Bureaucrat const &executor) const;
 };

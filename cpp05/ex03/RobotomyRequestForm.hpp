@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/07 13:42:23 by radib             #+#    #+#             */
-/*   Updated: 2026/07/15 17:40:51 by radib            ###   ########.fr       */
+/*   Created: 2026/06/21 12:22:29 by radib             #+#    #+#             */
+/*   Updated: 2026/06/21 13:08:11 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#pragma once
 
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "math.h"
 
-#include <string>
-#include <iostream>
-
-class ScalarConverter {
+class RobotomyRequestForm : public AForm {
 private:
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter& src);
-    ScalarConverter& operator=(const ScalarConverter& src);
-    ~ScalarConverter();
-
+	const std::string	_target;
 public:
-    static void convert(const std::string& literal);
+	RobotomyRequestForm(std::string name);
+	~RobotomyRequestForm();
+	void 	execute(Bureaucrat const &executor) const;
 };

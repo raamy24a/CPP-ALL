@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:49:18 by radib             #+#    #+#             */
-/*   Updated: 2026/06/25 14:27:56 by radib            ###   ########.fr       */
+/*   Updated: 2026/07/15 14:05:04 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@
  
 int main()
 {
-	Bureaucrat kevin("kevin", 1);
+	try
+	{
+		Bureaucrat kevin("kevin", 50);
+		PresidentialPardonForm president("president");
+		ShrubberyCreationForm shrubbbery("shruberry");
+		RobotomyRequestForm robot("Robot");
+		president.beSigned(kevin);
+		shrubbbery.beSigned(kevin);
+		robot.beSigned(kevin);
+		president.execute(kevin);
+		shrubbbery.execute(kevin);
+		robot.execute(kevin);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return(0);
 }
