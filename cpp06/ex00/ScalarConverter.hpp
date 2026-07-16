@@ -13,6 +13,9 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <sstream>
+
 
 class ScalarConverter {
 private:

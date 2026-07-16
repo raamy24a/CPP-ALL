@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME		= scalar
-SRCS		= main.cpp
+SRCS		= main.cpp ScalarConverter.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
