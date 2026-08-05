@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 10:49:18 by radib             #+#    #+#             */
-/*   Updated: 2026/07/25 15:32:30 by radib            ###   ########.fr       */
+/*   Created: 2026/08/05 04:35:51 by radib             #+#    #+#             */
+/*   Updated: 2026/08/05 05:10:11 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#include <vector>
 
-int main()
+class Span
 {
-    Array<int> a(5);
-}
+    private :
+        std::vector<int> _storage;
+    public :
+        Span(unsigned int N);
+        ~Span();
+        void addNumber(int i);
+} ;
