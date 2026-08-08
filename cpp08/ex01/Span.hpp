@@ -6,20 +6,22 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 04:35:51 by radib             #+#    #+#             */
-/*   Updated: 2026/08/08 02:58:31 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/09 00:22:15 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <vector>
 #include <stdexcept>
 #include <limits>
+#include <cmath>
+#include <cstdlib>
 
 class Span
 {
     private :
         int *_storage;
-        unsigned long long _short;
-        unsigned long long _long;
+        unsigned long _short;
+        unsigned long _long;
         int _storedCount;
         int _maxStorage;
         int _small;
@@ -40,11 +42,11 @@ class Span
         } ;
         template <typename InputIterator>
         void addNumbers(InputIterator begin, InputIterator end) {
-            size_t distance = std::distance(begin, end);
-            if (this->_storedCount + distance > this->_maxStorage) {
-                throw std::out_of_range("Not enough space in Span to add range!");
+            while (begin != end)
+            {
+                addNumber(*begin);
+                begin++;
             }
-            this->_storedCount.insert(this->_storedCount.end(), begin, end);
-}
+        }
 };
 

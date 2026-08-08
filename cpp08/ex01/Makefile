@@ -6,12 +6,12 @@
 #    By: radib <radib@student.42belgium.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/08/08 02:57:20 by radib            ###   ########.fr        #
+#    Updated: 2026/08/09 00:12:26 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= span
-SRCS		= main.cpp ex01/Span.cpp
+SRCS		= main.cpp Span.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98

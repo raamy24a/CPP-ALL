@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 04:34:54 by radib             #+#    #+#             */
-/*   Updated: 2026/08/08 02:56:07 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/09 00:28:09 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ char const *Span::not_enough::what(void) const throw()
 {
 	return "not enough numbers yet add more";
 }
-
+Span::~Span()
+{
+    delete[] _storage;
+}
 Span::Span(unsigned int N)
 {
-    int *p = new int[N];
-    _storage = p;
+    _storage = new int[N];
     _short = 90000000000;
     _long = 0;
     _storedCount = 0;
@@ -52,10 +54,8 @@ void Span::addNumber(int i)
 
     while (count < _storedCount - 1)
     {
-        if (i < _storage[count] && _storage[count] - i < _short)
-            _short = _storage[count] - i;
-        else if (_storage[count] - i < _short)
-            _short = i - _storage[count];
+        _short = i - _storage[count];
+        _short = abs(_short);
         count++;
     }
     _long = _big - _small;
