@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 04:35:51 by radib             #+#    #+#             */
-/*   Updated: 2026/08/09 00:22:15 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/13 15:49:09 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Span
 {
     private :
-        int *_storage;
+        std::vector<int> _storage;
         unsigned long _short;
         unsigned long _long;
         int _storedCount;
