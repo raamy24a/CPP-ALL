@@ -6,11 +6,29 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:50:40 by radib             #+#    #+#             */
-/*   Updated: 2026/08/14 16:35:52 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/16 04:24:16 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+bool isLeapYear(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+bool isValidDate(int year, int month, int day) {
+    if (year < 1 || month < 1 || month > 12 || day < 1) {
+        return false;
+    }
+    static const int daysInMonth[] = {
+        0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+    };
+    int maxDays = daysInMonth[month];
+    if (month == 2 && isLeapYear(year)) {
+        maxDays = 29;
+    }
+    return day <= maxDays;
+}
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -36,7 +54,7 @@ BitcoinExchange::~BitcoinExchange()
     std::cout << "BitcoinExchange destructor called" << std::endl;
     
 }
-std::map<std::string, int> csvToMap(std::string fileName)
+std::map<std::string, int> BitcoinExchange::csvToMap(std::string fileName)
 {
     int i = 0;
     int j = 0;
@@ -63,6 +81,8 @@ std::map<std::string, int> csvToMap(std::string fileName)
         i = 0;
         while (currentLine[i])
         {
+            if (isValidDate((atoi(currentLine.substr(0, 4).c_str())), atoi(currentLine.substr(5, 2).c_str()), atoi(currentLine.substr(8, 9).c_str())))
+                this->_db.insert(currentLine.substr(0, 9), currentLine.substr(12, currentLine.length()));
             
         }
     }

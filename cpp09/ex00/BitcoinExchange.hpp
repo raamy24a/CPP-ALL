@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <map>
 #include <fstream>
+#include "Date.hpp"
 #include <cstring>
 
 class BitcoinExchange
@@ -14,8 +15,8 @@ class BitcoinExchange
         std::map<std::string, int> csvToMap(std::string fileName);
 
     private :
-        std::map<std::string, int> _db;
-        std::map<std::string, int> _secondDb;
+        std::map<Date, int> _db;
+        std::map<Date, int> _secondDb;
         std::ifstream _streamDb;
         std::ifstream _streamSecondDb;
 } ;
