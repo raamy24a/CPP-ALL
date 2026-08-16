@@ -6,6 +6,8 @@ class Date
         Date();
         Date(const Date& other);
         Date(std::string string);
+        int& operator[](int i);
+        const int& Date::operator[](int i) const;
         ~Date();
         Date& operator=(const Date& other);
     private :
@@ -13,4 +15,6 @@ class Date
         int _month;
         int _year;
         bool _isValid;
-}
+} ;
+
+std::ostream& operator<<(std::ostream& os, const Date& ui);
