@@ -83,6 +83,14 @@ Date& Date::operator=(const Date& other)
         _isValid = other._isValid;
     }
 }
+
+bool Date::operator<(const Date& other)
+{
+    if (_year * 10000 + _month * 100 + _day < other._year * 10000 + other._month * 100 + other._day)
+        return (true);
+    return (false);
+}
+
 std::ostream& operator<<(std::ostream& os, const Date& ui)
 {
     if (!ui[3])

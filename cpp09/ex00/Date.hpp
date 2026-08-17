@@ -9,6 +9,7 @@ class Date
         int& operator[](int i);
         const int& Date::operator[](int i) const;
         ~Date();
+        bool operator<(const Date& other);
         Date& operator=(const Date& other);
     private :
         int _day;
