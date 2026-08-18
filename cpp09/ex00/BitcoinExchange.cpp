@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:50:40 by radib             #+#    #+#             */
-/*   Updated: 2026/08/16 04:24:16 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/18 02:32:17 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,12 @@ BitcoinExchange::~BitcoinExchange()
     std::cout << "BitcoinExchange destructor called" << std::endl;
     
 }
-std::map<std::string, int> BitcoinExchange::csvToMap(std::string fileName)
+std::map<Date, float> BitcoinExchange::csvToMap(std::string fileName)
 {
     int i = 0;
     int j = 0;
     std::string currentLine;
+    std::map<Date, float> ret;
     try
     {
         std::ifstream in(fileName);
@@ -66,7 +67,7 @@ std::map<std::string, int> BitcoinExchange::csvToMap(std::string fileName)
     catch( std::exception& e)
     {
         std::cerr << e.what();
-        return (std::map<std::string, int>());
+        return (std::map<Date, float>());
     }
     std::ifstream in(fileName);
     while (getline (in, currentLine))
@@ -79,11 +80,7 @@ std::map<std::string, int> BitcoinExchange::csvToMap(std::string fileName)
         else if (j == 0)
             j++;
         i = 0;
-        while (currentLine[i])
-        {
-            if (isValidDate((atoi(currentLine.substr(0, 4).c_str())), atoi(currentLine.substr(5, 2).c_str()), atoi(currentLine.substr(8, 9).c_str())))
-                this->_db.insert(currentLine.substr(0, 9), currentLine.substr(12, currentLine.length()));
-            
-        }
+        ret.insert(std::make_pair(Date(currentLine), atof(&currentLine.c_str()[11])));
     }
+    return (ret);
 }

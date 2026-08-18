@@ -16,6 +16,7 @@ class Date
         int _month;
         int _year;
         bool _isValid;
+        int _scalar;
 } ;
 
 std::ostream& operator<<(std::ostream& os, const Date& ui);

@@ -5,6 +5,7 @@ Date::Date()
     _day = 0;
     _month = 0;
     _year = 0;
+    _scalar = 0;
     _isValid = false;
 }
 Date::Date(const Date& other)
@@ -13,6 +14,7 @@ Date::Date(const Date& other)
         _month = other._month;
         _year = other._year;
         _isValid = other._isValid;
+        _scalar = _year * 10000 + _month * 100 + _day;
 }
 
 bool isLeapYear(int year) {
@@ -38,7 +40,7 @@ Date::Date(std::string string)
     _year = atoi(string.c_str());
     _month = atoi(&string.c_str()[5]);
     _day = atoi(&string.c_str()[7]);
-
+    _scalar = _year * 10000 + _month * 100 + _day;
     if (isValidDate(_year, _month, _day) && string.c_str()[4] == '-' && string.c_str()[6] == '-' )
     {
         _isValid = true;
@@ -69,8 +71,10 @@ const int& Date::operator[](int i) const
         return (this->_month);
     else if (i == 2)
         return (this->_day);
-    else
+    else if (i == 3)
         return (this->_isValid);
+    else
+        return (this->_scalar);
 }
 
 Date& Date::operator=(const Date& other)
@@ -81,12 +85,14 @@ Date& Date::operator=(const Date& other)
         _month = other._month;
         _year = other._year;
         _isValid = other._isValid;
+        _scalar = other._scalar;
     }
+    return (*this);
 }
 
 bool Date::operator<(const Date& other)
 {
-    if (_year * 10000 + _month * 100 + _day < other._year * 10000 + other._month * 100 + other._day)
+    if ( _scalar < other._scalar)
         return (true);
     return (false);
 }
