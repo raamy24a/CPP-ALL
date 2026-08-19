@@ -48,10 +48,6 @@ Date::Date(std::string string)
     else
         _isValid = false;
 }
-Date::~Date()
-{
-
-}
 
 int& Date::operator[](int i)
 {
@@ -71,8 +67,6 @@ const int& Date::operator[](int i) const
         return (this->_month);
     else if (i == 2)
         return (this->_day);
-    else if (i == 3)
-        return (this->_isValid);
     else
         return (this->_scalar);
 }
@@ -89,8 +83,11 @@ Date& Date::operator=(const Date& other)
     }
     return (*this);
 }
-
-bool Date::operator<(const Date& other)
+bool Date::isValid() const
+{
+    return (this->_isValid);
+}
+bool Date::operator<(const Date& other) const
 {
     if ( _scalar < other._scalar)
         return (true);
@@ -100,7 +97,7 @@ bool Date::operator<(const Date& other)
 std::ostream& operator<<(std::ostream& os, const Date& ui)
 {
     if (!ui[3])
-        throw("invalid date");
+        throw("invalid datee");
     if (ui[1] < 10 && ui[2] < 10)
         os << ui[0] << "-0" << ui[1] << "-0" << ui[2];
     else if (ui[1] < 10)
@@ -110,4 +107,9 @@ std::ostream& operator<<(std::ostream& os, const Date& ui)
     else
         os << ui[0] << "-" << ui[1] << "-" << ui[2];
     return (os);
+}
+
+Date::~Date()
+{
+    // std::cout << "default destructor called" << std::endl;
 }

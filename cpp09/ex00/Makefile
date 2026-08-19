@@ -6,12 +6,12 @@
 #    By: radib <radib@student.42belgium.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/08/14 14:58:37 by radib            ###   ########.fr        #
+#    Updated: 2026/08/19 01:30:04 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= btc
-SRCS		= main.cpp BitcoinExchange.cpp
+SRCS		= main.cpp Date.cpp BitcoinExchange.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98

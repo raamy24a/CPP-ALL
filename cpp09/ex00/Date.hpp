@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 class Date
 {
@@ -6,10 +7,11 @@ class Date
         Date();
         Date(const Date& other);
         Date(std::string string);
-        int& operator[](int i);
-        const int& Date::operator[](int i) const;
         ~Date();
-        bool operator<(const Date& other);
+        int& operator[](int i);
+        const int& operator[](int i) const;
+        bool operator<(const Date& other) const;
+        bool isValid() const;
         Date& operator=(const Date& other);
     private :
         int _day;
