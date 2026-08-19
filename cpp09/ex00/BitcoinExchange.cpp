@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:50:40 by radib             #+#    #+#             */
-/*   Updated: 2026/08/19 06:09:41 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/19 06:11:11 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void BitcoinExchange::executeBitcoin()
     std::map<Date, float>::iterator it = _secondDb.begin();
     while (it != _secondDb.end())
     {
-        if ((*it).first.isValid())
+        if ((*it).first.isValid() || (*it).first[3] <  2009 * 10000 + 100 +2)
             std::cerr << "invalid date" << std::endl;
         else if ((*it).second > 1000 || (*it).second < 0)
             std::cerr << "try a value between 0 and 1000" << std::endl;
