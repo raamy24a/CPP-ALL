@@ -39,9 +39,9 @@ Date::Date(std::string string)
 {
     _year = atoi(string.c_str());
     _month = atoi(&string.c_str()[5]);
-    _day = atoi(&string.c_str()[7]);
+    _day = atoi(&string.c_str()[8]);
     _scalar = _year * 10000 + _month * 100 + _day;
-    if (isValidDate(_year, _month, _day) && string.c_str()[4] == '-' && string.c_str()[6] == '-' )
+    if (isValidDate(_year, _month, _day) && string.c_str()[4] == '-' && string.c_str()[7] == '-' )
     {
         _isValid = true;
     }
@@ -55,8 +55,10 @@ int& Date::operator[](int i)
         return (this->_year);
     else if (i == 1)
         return (this->_month);
-    else
+    else if (i == 2)
         return (this->_day);
+    else
+        return (this->_scalar);
 }
 
 const int& Date::operator[](int i) const

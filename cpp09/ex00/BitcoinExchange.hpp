@@ -10,9 +10,8 @@ class BitcoinExchange
     public :
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& other);
-        BitcoinExchange(std::string fileName);
         BitcoinExchange& operator=(const BitcoinExchange& other);
-        void executeBitcoin();
+        void executeBitcoin(std::string fileName);
         ~BitcoinExchange();
     private :
         std::map<Date, float> _db;

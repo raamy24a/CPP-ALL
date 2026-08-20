@@ -6,7 +6,7 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:50:40 by radib             #+#    #+#             */
-/*   Updated: 2026/08/19 06:11:11 by radib            ###   ########.fr       */
+/*   Updated: 2026/08/19 18:31:05 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,7 @@
 BitcoinExchange::BitcoinExchange()
 {
     std::cout << "BitcoinExchange default constructor called" << std::endl;
-}
-void BitcoinExchange::executeBitcoin()
-{
-    std::map<Date, float>::iterator it = _secondDb.begin();
-    while (it != _secondDb.end())
-    {
-        if ((*it).first.isValid() || (*it).first[3] <  2009 * 10000 + 100 +2)
-            std::cerr << "invalid date" << std::endl;
-        else if ((*it).second > 1000 || (*it).second < 0)
-            std::cerr << "try a value between 0 and 1000" << std::endl;
-        else
-        {
-            std::map<Date, float>::iterator it2 = _db.begin();
-            while (it2 != _db.end())
-            {
-                if ((*it2).first[3] >= (*it).first[3])
-                    break;
-                else
-                    it2++;
-            }
-            std::cout << (*it).first << " => " << (*it).second << (*it).second * (*it2).second << std::endl;
-        }
-        it++;
-    }
-}
-BitcoinExchange::BitcoinExchange(std::string fileName)
-{
-    std::cout << "BitcoinExchange constructor called" << std::endl;
-        int j = 0;
+    int j = 0;
     std::string currentLine;
     try
     {
@@ -64,8 +36,14 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
         }
         else if (j == 0)
             j++;
-        _db.insert(std::make_pair(Date(currentLine), atof(&currentLine.c_str()[11])));
+        // std::cout << currentLine << ": " << std::strtof(&currentLine.c_str()[11], NULL) << std::endl;
+        _db.insert(std::make_pair(Date(currentLine),  std::strtof(&currentLine.c_str()[11], NULL)));
     }
+}
+void BitcoinExchange::executeBitcoin(std::string fileName)
+{
+    std::string currentLine;
+    int j = 1;
     try
     {
         std::ifstream in2(fileName.c_str());
@@ -85,9 +63,31 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
         }
         else if (j == 1)
             j++;
-        _secondDb.insert(std::make_pair(Date(currentLine), atof(&currentLine.c_str()[11])));
+        Date tempDate;
+        tempDate = Date(currentLine);
+        float tempFloat = std::strtof(&currentLine.c_str()[12], NULL);
+        if (!tempDate.isValid() || tempDate[3] <  2009 * 10000 + 100 +2)
+            std::cerr << "Error: bad input date is invalid" << std::endl;
+        else if (tempFloat > 1000 )
+            std::cerr << "Error: too large a number." << std::endl;
+        else if (tempFloat < 0)
+            std::cerr << "Error: not a positive number" << std::endl;
+        else
+        {
+            std::map<Date, float>::iterator it2 = _db.begin();
+            while (it2 != _db.end())
+            {
+                if ((*it2).first[3] >= tempDate[3])
+                    break;
+                else
+                    it2++;
+            }
+            std::cout << tempDate << " => " << tempFloat << " = " << tempFloat * (*it2).second << std::endl;
+        }
     }
+
 }
+
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
 {
     _db = other._db;

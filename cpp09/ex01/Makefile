@@ -6,12 +6,12 @@
 #    By: radib <radib@student.42belgium.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 21:08:11 by radib             #+#    #+#              #
-#    Updated: 2026/06/02 10:49:52 by radib            ###   ########.fr        #
+#    Updated: 2026/08/20 04:27:20 by radib            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
-SRCS		= main.cpp
+NAME		= RPN
+SRCS		= main.cpp rpn.cpp
 OBJS		= $(SRCS:.cpp=.o)
 RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
