@@ -6,7 +6,16 @@
 /*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:49:18 by radib             #+#    #+#             */
-/*   Updated: 2026/06/02 10:49:19 by radib            ###   ########.fr       */
+/*   Updated: 2026/09/29 20:43:48 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PmergeMe.hpp"
+
+int main(int argc, char **argv) {
+
+    if (argc != 2)
+        return (0);
+    pmergme testing(argv[1]);
+    return 0;
+}
