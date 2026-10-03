@@ -13,9 +13,10 @@ class pmergme
     private :
         std::deque<std::pair<int, int>> _container1;
         std::vector<std::pair<int, int>> _container2;
+        int _pairs;
     public :
         pmergme();
         ~pmergme();
         pmergme(std::string str);
-        std::deque<std::pair<int, int>> deque_ford(int number, std::iterator<std::deque<std::pair<int, int>>> it);
+        void deque_ford(int number, int position);
 } ;

@@ -29,9 +29,12 @@ pmergme::~pmergme()
 {
 
 }
-std::deque<std::pair<int, int>> pmergme::deque_ford()
+void pmergme::deque_ford(int number, int position)
 {
-    
+    int i = 0;
+    while (position + i < position + number)
+        if (_container2[position + i].first < _container2[position + i].second)
+            std::swap(_container2[position + i].first, _container2[position + i].second);
 }
 pmergme::pmergme(std::string str)
 {
@@ -53,6 +56,7 @@ pmergme::pmergme(std::string str)
             pair.second = is_positive_int(str);
             _container1.push_back(pair);
             first_val = -1;
+            _pairs++;
         }
         else
             throw("non");
