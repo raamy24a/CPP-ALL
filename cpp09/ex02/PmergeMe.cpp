@@ -29,12 +29,46 @@ pmergme::~pmergme()
 {
 
 }
-void pmergme::deque_ford(int number, int position)
+std::deque<std::pair<int, int> > deque_ford(std::deque<std::pair<int, int> > container)
 {
     int i = 0;
-    while (position + i < position + number)
-        if (_container2[position + i].first < _container2[position + i].second)
-            std::swap(_container2[position + i].first, _container2[position + i].second);
+    if (container.size() <= 1)
+        return (container);
+    int last_pair_a = -1;
+    int last_pair_b = -1;
+    std::deque<pairofpair> con;
+    std::deque<pairofpair>::iterator it;
+    it = container.begin();
+    while (it != container.end())
+    {
+        (*it).sort();
+        if (last_pair_a == -1)
+        {
+            last_pair_a = (*it).first;
+            last_pair_b = (*it).second;
+        }
+        else
+        {
+            if (last_pair_a > (*it).first)
+            {
+                con.push_back(std::make_pair(last_pair_a, last_pair_b));
+                con.push_back(std::make_pair((*it).first, (*it).second));
+            }
+            else
+            {
+                con.push_back(std::make_pair((*it).first, (*it).second));
+                con.push_back(std::make_pair(last_pair_a, last_pair_b));
+            }
+            
+            last_pair_b = -1;
+            last_pair_a = -1;
+        }
+        it++;
+    }
+    if (last_pair_a != -1)
+        con.push_back(std::make_pair(last_pair_a, last_pair_b));
+
+    return deque_ford(con);
 }
 pmergme::pmergme(std::string str)
 {
