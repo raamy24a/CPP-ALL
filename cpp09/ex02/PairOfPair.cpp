@@ -11,7 +11,12 @@ pairofpair::pairofpair(std::pair<int, int> first, std::pair<int, int> second)
 }
 pairofpair& pairofpair::operator=(const pairofpair& other)
 {
-    
+    if (this != &other)
+    {
+        _pairs.first = other._pairs.first;
+        _pairs.second = other._pairs.second;
+    }
+    return (*this);
 }
 pairofpair::~pairofpair()
 {

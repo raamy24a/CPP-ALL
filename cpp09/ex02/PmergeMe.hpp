@@ -7,6 +7,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <cerrno>
+#include "PairOfPair.hpp"
 #include <stdexcept>
 
 class pairofpair;

@@ -29,7 +29,18 @@ pmergme::~pmergme()
 {
 
 }
-std::deque<std::pair<int, int> > deque_ford(std::deque<std::pair<int, int> > container)
+
+void deque_initial_sort(std::deque<pairofpair> container)
+{
+    std::deque<pairofpair>::iterator it;
+    while (it != container.end())
+    {
+        (*it).sort();
+        it++;
+    }
+}
+
+std::deque<pairofpair> deque_ford(std::deque<pairofpair> container)
 {
     int i = 0;
     if (container.size() <= 1)
@@ -37,34 +48,9 @@ std::deque<std::pair<int, int> > deque_ford(std::deque<std::pair<int, int> > con
     int last_pair_a = -1;
     int last_pair_b = -1;
     std::deque<pairofpair> con;
-    std::deque<pairofpair>::iterator it;
+
     it = container.begin();
-    while (it != container.end())
-    {
-        (*it).sort();
-        if (last_pair_a == -1)
-        {
-            last_pair_a = (*it).first;
-            last_pair_b = (*it).second;
-        }
-        else
-        {
-            if (last_pair_a > (*it).first)
-            {
-                con.push_back(std::make_pair(last_pair_a, last_pair_b));
-                con.push_back(std::make_pair((*it).first, (*it).second));
-            }
-            else
-            {
-                con.push_back(std::make_pair((*it).first, (*it).second));
-                con.push_back(std::make_pair(last_pair_a, last_pair_b));
-            }
-            
-            last_pair_b = -1;
-            last_pair_a = -1;
-        }
-        it++;
-    }
+    
     if (last_pair_a != -1)
         con.push_back(std::make_pair(last_pair_a, last_pair_b));
 
