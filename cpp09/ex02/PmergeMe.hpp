@@ -7,14 +7,14 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <cerrno>
+#include <algorithm>
 #include <stdexcept>
 
-class pairofpair;
 class pmergme
 {
     private :
-        std::deque<pairofpair> _container1;
-        std::vector<pairofpair> _container2;
+        std::deque<int> _container1;
+        std::vector<int> _container2;
         int _pairs;
     public :
         pmergme();

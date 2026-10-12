@@ -29,79 +29,121 @@ pmergme::~pmergme()
 {
 
 }
-std::deque<std::pair<int, int> > deque_ford(std::deque<std::pair<int, int> > container)
+int jacobsthal(int n)
 {
-    int i = 0;
-    if (container.size() <= 1)
-        return (container);
-    int last_pair_a = -1;
-    int last_pair_b = -1;
-    std::deque<pairofpair> con;
-    std::deque<pairofpair>::iterator it;
-    it = container.begin();
-    while (it != container.end())
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    int value = 0;
+    int antelast = 0;
+    int last = 1;
+    int i = 1;
+    while (i < n)
     {
-        (*it).sort();
-        if (last_pair_a == -1)
-        {
-            last_pair_a = (*it).first;
-            last_pair_b = (*it).second;
-        }
-        else
-        {
-            if (last_pair_a > (*it).first)
-            {
-                con.push_back(std::make_pair(last_pair_a, last_pair_b));
-                con.push_back(std::make_pair((*it).first, (*it).second));
-            }
-            else
-            {
-                con.push_back(std::make_pair((*it).first, (*it).second));
-                con.push_back(std::make_pair(last_pair_a, last_pair_b));
-            }
-            
-            last_pair_b = -1;
-            last_pair_a = -1;
-        }
-        it++;
+        value = antelast * 2 + last;
+        antelast = last;
+        last = value;
+        i++;
     }
-    if (last_pair_a != -1)
-        con.push_back(std::make_pair(last_pair_a, last_pair_b));
-
-    return deque_ford(con);
+    return (value);
 }
-pmergme::pmergme(std::string str)
+void mergeInsertionSort(std::deque<int>& main_chain)
 {
-    std::cout << "pmergme constructor called" << std::endl;
-    std::stringstream ss(str);
-
-    std::string word;
-
-    int first_val = -1;
-    int leftover = -1;
-    while (getline(ss, str, ' '))
+    if (main_chain.size() <= 1)
+        return;
+    std::deque<std::pair<int, int> > pairs;
+    int orphan = -1;
+    bool has_orphan = false;
+    size_t i = 0;
+    while (i < main_chain.size())
     {
-        if (is_positive_int(str) != -1 && first_val == -1)
-            first_val = is_positive_int(str);
-        else if (is_positive_int(str) != -1)
+        if (i + 1 < main_chain.size())
         {
-            std::pair<int, int> pair;
-            pair.first = first_val;
-            pair.second = is_positive_int(str);
-            _container1.push_back(pair);
-            first_val = -1;
-            _pairs++;
+            int a = main_chain[i];
+            int b = main_chain[i + 1];
+            if (a < b)
+                pairs.push_back(std::make_pair(b, a));
+            else
+                pairs.push_back(std::make_pair(a, b));
+            i += 2;
         }
         else
-            throw("non");
+        {
+            orphan = main_chain[i];
+            has_orphan = true;
+            i++;
+        }
     }
-    //starttimer
+    std::deque<int> highs;
+    size_t j_idx = 0;
+    while (j_idx < pairs.size())
+    {
+        highs.push_back(pairs[j_idx].first);
+        j_idx++;
+    }
+    mergeInsertionSort(highs);
+    std::deque<std::pair<int, int> > sorted_pairs;
+    size_t h = 0;
+    while (h < highs.size())
+    {
+        int val = highs[h];
+        size_t k = 0;
+        while (k < pairs.size())
+        {
+            if (pairs[k].first == val)
+            {
+                sorted_pairs.push_back(pairs[k]);
+                pairs.erase(pairs.begin() + k);
+                break;
+            }
+            k++;
+        }
+        h++;
+    }
+    pairs = sorted_pairs;
+    main_chain.clear();
+    size_t p_idx = 0;
+    while (p_idx < pairs.size())
+    {
+        main_chain.push_back(pairs[p_idx].first);
+        p_idx++;
+    }
+    main_chain.push_front(pairs[0].second);
+    std::deque<int> pend;
+    size_t p_next = 1;
+    while (p_next < pairs.size())
+    {
+        pend.push_back(pairs[p_next].second);
+        p_next++;
+    }
+    if (has_orphan)
+        pend.push_back(orphan);
+    size_t jacob_idx = 3;
+    size_t prev_j = 2;
+    size_t inserted_count = 0;
+    while (inserted_count < pend.size())
+    {
+        size_t current_j = jacobsthal(jacob_idx);
+        if (current_j > pend.size())
+            current_j = pend.size();
 
-    
-    // if (first_val != -1)
-    //     leftover = first_val;
-    // std::stringstream ss(str);
-    // while (getline(ss, str, ' '))
-    //get time start
-    _container1
+        size_t curr_loop = current_j;
+        while (curr_loop > prev_j)
+        {
+            int val_to_insert = pend[curr_loop - 1];
+            std::deque<int>::iterator bound = main_chain.end();
+            if (curr_loop < pairs.size())
+            {
+                int corresponding_a = pairs[curr_loop].first;
+                bound = std::find(main_chain.begin(), main_chain.end(), corresponding_a);
+            }
+            std::deque<int>::iterator pos = std::lower_bound(main_chain.begin(), bound, val_to_insert);
+            main_chain.insert(pos, val_to_insert);
+            inserted_count++;
+            curr_loop--;
+        }
+        prev_j = current_j;
+        jacob_idx++;
+        if (current_j >= pend.size())
+            break;
+    }
 }
