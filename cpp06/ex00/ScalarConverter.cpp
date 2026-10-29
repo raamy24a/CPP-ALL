@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: radib <radib@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 13:42:32 by radib             #+#    #+#             */
-/*   Updated: 2026/07/17 19:24:37 by radib            ###   ########.fr       */
+/*   Updated: 2026/10/29 13:11:20 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
+{
+    return (*this);
+}
+
+ScalarConverter::ScalarConverter()
+{
+    std::cout << "Default Scalarconverter called" << std::endl;
+}
+ScalarConverter::~ScalarConverter()
+{
+    std::cout << "Default ScalarConverter destructor called" << std::endl;
+}
 
 
 void writelitteral(const std::string& str)
