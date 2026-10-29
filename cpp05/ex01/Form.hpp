@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: radib <radib@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:56:15 by radib             #+#    #+#             */
-/*   Updated: 2026/06/20 10:14:49 by radib            ###   ########.fr       */
+/*   Updated: 2026/10/29 11:49:17 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
-
+#pragma once
 #include <iostream>
-#include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form
 {
     public :
@@ -25,10 +23,9 @@ class Form
 		Form& operator=(const Form& other);
 		std::string 	getName() const;
 		bool			getSigned() const;
-		void			beSigned(const Bureaucrat& bureaucrat);
-		const int		getGradeToSign() const;
 		void 			beSigned(const Bureaucrat& bureaucrat);
-		const int		getGradeToExec() const;
+		int		getGradeToSign() const;
+		int		getGradeToExec() const;
     private :
 	    const std::string   _name;
 	    bool                _signed;
@@ -45,4 +42,3 @@ class Form
 } ;
 
 std::ostream& operator<<(std::ostream& o, Form& current);
-#endif

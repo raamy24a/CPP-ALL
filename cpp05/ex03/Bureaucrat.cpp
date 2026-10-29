@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: radib <radib@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:39 by radib             #+#    #+#             */
-/*   Updated: 2026/06/23 18:45:31 by radib            ###   ########.fr       */
+/*   Updated: 2026/10/29 12:57:22 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@ void Bureaucrat::signForm(AForm& form)
 		std::cerr << e.what() << '\n';
 	}
 	
+}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name)
+{
+	this->_grade = other._grade;
+}
+Bureaucrat& Bureaucrat::operator=( const Bureaucrat& other )
+{
+	this->_grade = other._grade;
+	return *this;
+}
+
+Bureaucrat::Bureaucrat() : _name("jhon")
+{
+	_grade = 150;
 }
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {

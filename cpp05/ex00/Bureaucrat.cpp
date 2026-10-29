@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: radib <radib@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:39 by radib             #+#    #+#             */
-/*   Updated: 2026/06/05 12:15:27 by radib            ###   ########.fr       */
+/*   Updated: 2026/10/29 12:48:21 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : _name("jhon")
+{
+	_grade = 150;
+}
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
+{
+	this->_grade = other._grade;
+	return *this;
+}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: radib <radib@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 10:49:18 by radib             #+#    #+#             */
-/*   Updated: 2026/06/04 14:12:28 by radib            ###   ########.fr       */
+/*   Updated: 2026/10/29 12:41:06 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ int main()
 {
 	try
 	{
-		Bureaucrat kevin("kevin", 42);
+		Bureaucrat kevin("gabs", 42);
+		Bureaucrat meow("meow", 44);
+		meow = kevin;
+		std::cout << "MEOWWWWWWWWWWWWWWWWWW : ";
+		std::cout << meow.getName() << std::endl;
 		Bureaucrat gabin("gabin", 151);
 	}
 	catch(const std::exception& e)

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radib <radib@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: radib <radib@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 11:24:41 by radib             #+#    #+#             */
-/*   Updated: 2026/06/07 14:20:29 by radib            ###   ########.fr       */
+/*   Updated: 2026/10/29 12:53:30 by radib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
+#include "Form.hpp"
 
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
 
 class Bureaucrat
 {
 	public :
+	Bureaucrat();
 	~Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat& other);
@@ -42,4 +42,3 @@ class Bureaucrat
 	};
 } ;
 std::ostream& operator<<(std::ostream& o, Bureaucrat& target);
-#endif
